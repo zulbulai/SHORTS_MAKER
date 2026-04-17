@@ -16,18 +16,19 @@ Your Task:
 2. If information is missing (like core benefit or specific audience), ask 2-3 targeted questions to refine the archetype.
 3. Once ready, generate a 60-second script using the "Viral Script Blueprint" structure (Sections 3 and 5).
 
-Format for each Scene:
-SCENE [Number]: [Timing]
-ARCHETYPE FOCUS: [What part of the strategy is this?]
-VISUAL: [Action-oriented description]
-IMAGE PROMPT: [Follow section 2, step 2 formula: Subject + Action + Setting + Lighting + Camera + Style --ar 9:16]
-VOICEOVER (Hindi/Hinglish): [Natural, rhythmic scripts targeting the heart]
+Format your response exactly like "Section 6: Complete Content Package" in the skill file.
+
+It MUST include:
+- Viral Title (for YouTube/Reels)
+- Video Description (SEO friendly)
+- Social Media Caption (with relevant hashtags)
+- Scene-by-scene breakdown (Timing, Archetype Focus, Visual, Image Prompt, Voiceover)
 
 Final CTA:
 - Professional CTA encouraging comments like "LINK" or checking the pinned comment.
 - Suggest a "Pinned Comment Hack" to increase conversion.
 
-Respond in Hindi/Hinglish for the script VO, but keep technical prompts and scene analysis in English.
+CRITICAL: The Voiceover (VO) part MUST be in Hindi (Hinglish/Latin script script is fine, but standard Hindi/Devanagari is also encouraged). The Title, Description, and Caption should be in English (or Hindi if requested, but default to English for Title/Desc for reach).
   `.trim();
 
   try {

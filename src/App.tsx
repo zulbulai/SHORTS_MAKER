@@ -7,6 +7,7 @@ import { Button, Input, Textarea } from './components/ui';
 export default function App() {
   const [productName, setProductName] = useState('');
   const [productDesc, setProductDesc] = useState('');
+  const [productPrice, setProductPrice] = useState('');
   const [additionalInfo, setAdditionalInfo] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
@@ -16,7 +17,8 @@ export default function App() {
     if (!productName || !productDesc) return;
     setLoading(true);
     try {
-      const script = await generateShortsScript(productName, productDesc, context);
+      const fullDesc = productPrice ? `${productDesc}\nPrice: ${productPrice}` : productDesc;
+      const script = await generateShortsScript(productName, fullDesc, context);
       setResult(script);
       
       // Basic heuristic to check if Gemini is asking questions
@@ -35,6 +37,7 @@ export default function App() {
   const reset = () => {
     setProductName('');
     setProductDesc('');
+    setProductPrice('');
     setAdditionalInfo('');
     setResult(null);
     setIsQuestionFlow(false);
@@ -67,14 +70,25 @@ export default function App() {
               className="bg-zinc-900/50 border border-zinc-800 rounded-3xl p-8 md:p-12 shadow-2xl backdrop-blur-sm"
             >
               <div className="space-y-8">
-                <div className="space-y-3">
-                  <label className="text-sm font-medium text-zinc-400 ml-1">Product Name</label>
-                  <Input 
-                    placeholder="e.g., AeroBloom Humidifier" 
-                    value={productName}
-                    onChange={(e) => setProductName(e.target.value)}
-                    className="bg-zinc-900 border-zinc-800 h-14 text-lg"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <label className="text-sm font-medium text-zinc-400 ml-1">Product Name</label>
+                    <Input 
+                      placeholder="e.g., AeroBloom Humidifier" 
+                      value={productName}
+                      onChange={(e) => setProductName(e.target.value)}
+                      className="bg-zinc-900 border-zinc-800 h-14 text-lg"
+                    />
+                  </div>
+                  <div className="space-y-3">
+                    <label className="text-sm font-medium text-zinc-400 ml-1">Price (Optional)</label>
+                    <Input 
+                      placeholder="e.g., ₹999 or $19.99" 
+                      value={productPrice}
+                      onChange={(e) => setProductPrice(e.target.value)}
+                      className="bg-zinc-900 border-zinc-800 h-14 text-lg"
+                    />
+                  </div>
                 </div>
                 
                 <div className="space-y-3">
